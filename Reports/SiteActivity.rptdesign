@@ -1,0 +1,2960 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="author">Yamiko</property>
+    <property name="createdBy">Eclipse BIRT Designer Version 2.6.1.v20100902 Build &lt;2.6.1.v20100915-1750></property>
+    <text-property name="title">Site Activity</text-property>
+    <property name="units">in</property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">11</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">11</property>
+        </structure>
+    </list-property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="periodId" id="304">
+            <text-property name="helpText">Reporting Period</text-property>
+            <text-property name="promptText">Select Reporting Period</text-property>
+            <property name="valueType">dynamic</property>
+            <property name="isRequired">true</property>
+            <property name="dataSetName">Period</property>
+            <expression name="valueExpr" type="javascript">dataSetRow["periodId"]</expression>
+            <expression name="labelExpr" type="javascript">dataSetRow["ending"]</expression>
+            <expression name="sortByColumn">dataSetRow["ending"]</expression>
+            <property name="sortDirection">asc</property>
+            <property name="dataType">decimal</property>
+            <property name="distinct">true</property>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">false</property>
+            <property name="fixedOrder">false</property>
+            <property name="autoSuggestThreshold">1</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="HTCDataSource" id="10">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://192.168.75.18:3306/HTC</property>
+            <property name="odaUser">htcuser</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">bWFjcm8=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Activity" id="11">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">periodId</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">siteId</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">periodId</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">urban</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">periUrban</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">trading</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">rural</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">maleCondoms</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">femaleCondoms</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">totalMale0To17</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">totalMale18To179</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">totalMale180To299</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">totalMale300To599</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">totalMale600Plus</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">totalFemale0To17</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">totalFemale18To179</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">totalFemale180To299</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">totalFemale300To599</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">totalFemale600Plus</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">positiveMale0To17</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">positiveMale18To179</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">positiveMale180To299</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">positiveMale300To599</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">positiveMale600Plus</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">positiveFemale0To17</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">positiveFemale18To179</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">positiveFemale180To299</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">positiveFemale300To599</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">positiveFemale600Plus</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">29</property>
+                        <property name="name">totalKit1Used</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">totalKit2Used</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">31</property>
+                        <property name="name">totalKit3Used</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">32</property>
+                        <property name="name">males</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">33</property>
+                        <property name="name">femalesNonPregnant</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">34</property>
+                        <property name="name">femalesPregnant</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">35</property>
+                        <property name="name">exposedInfants</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">36</property>
+                        <property name="name">reactive</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">37</property>
+                        <property name="name">nonReactive</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">38</property>
+                        <property name="name">inconclusive</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">39</property>
+                        <property name="name">everHivTestedbefore</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">40</property>
+                        <property name="name">comesWithPartner</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">41</property>
+                        <property name="name">singleTestNegative</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">42</property>
+                        <property name="name">test1And2Negative</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">43</property>
+                        <property name="name">test1And2Positive</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">44</property>
+                        <property name="name">test1And2Discordant</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">45</property>
+                        <property name="name">name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">46</property>
+                        <property name="name">ending</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">HTCDataSource</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">siteId</property>
+                    <property name="nativeName">siteId</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">periodId</property>
+                    <property name="nativeName">periodId</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">urban</property>
+                    <property name="nativeName">urban</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">periUrban</property>
+                    <property name="nativeName">periUrban</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">trading</property>
+                    <property name="nativeName">trading</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">rural</property>
+                    <property name="nativeName">rural</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">maleCondoms</property>
+                    <property name="nativeName">maleCondoms</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">femaleCondoms</property>
+                    <property name="nativeName">femaleCondoms</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">totalMale0To17</property>
+                    <property name="nativeName">totalMale0To17</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">totalMale18To179</property>
+                    <property name="nativeName">totalMale18To179</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">totalMale180To299</property>
+                    <property name="nativeName">totalMale180To299</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">totalMale300To599</property>
+                    <property name="nativeName">totalMale300To599</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">totalMale600Plus</property>
+                    <property name="nativeName">totalMale600Plus</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">totalFemale0To17</property>
+                    <property name="nativeName">totalFemale0To17</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">totalFemale18To179</property>
+                    <property name="nativeName">totalFemale18To179</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">totalFemale180To299</property>
+                    <property name="nativeName">totalFemale180To299</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">totalFemale300To599</property>
+                    <property name="nativeName">totalFemale300To599</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">totalFemale600Plus</property>
+                    <property name="nativeName">totalFemale600Plus</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">positiveMale0To17</property>
+                    <property name="nativeName">positiveMale0To17</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">positiveMale18To179</property>
+                    <property name="nativeName">positiveMale18To179</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">positiveMale180To299</property>
+                    <property name="nativeName">positiveMale180To299</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">positiveMale300To599</property>
+                    <property name="nativeName">positiveMale300To599</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">positiveMale600Plus</property>
+                    <property name="nativeName">positiveMale600Plus</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">positiveFemale0To17</property>
+                    <property name="nativeName">positiveFemale0To17</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">positiveFemale18To179</property>
+                    <property name="nativeName">positiveFemale18To179</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">positiveFemale180To299</property>
+                    <property name="nativeName">positiveFemale180To299</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">27</property>
+                    <property name="name">positiveFemale300To599</property>
+                    <property name="nativeName">positiveFemale300To599</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">28</property>
+                    <property name="name">positiveFemale600Plus</property>
+                    <property name="nativeName">positiveFemale600Plus</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">29</property>
+                    <property name="name">totalKit1Used</property>
+                    <property name="nativeName">totalKit1Used</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">30</property>
+                    <property name="name">totalKit2Used</property>
+                    <property name="nativeName">totalKit2Used</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">31</property>
+                    <property name="name">totalKit3Used</property>
+                    <property name="nativeName">totalKit3Used</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">32</property>
+                    <property name="name">males</property>
+                    <property name="nativeName">males</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">33</property>
+                    <property name="name">femalesNonPregnant</property>
+                    <property name="nativeName">femalesNonPregnant</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">34</property>
+                    <property name="name">femalesPregnant</property>
+                    <property name="nativeName">femalesPregnant</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">35</property>
+                    <property name="name">exposedInfants</property>
+                    <property name="nativeName">exposedInfants</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">36</property>
+                    <property name="name">reactive</property>
+                    <property name="nativeName">reactive</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">37</property>
+                    <property name="name">nonReactive</property>
+                    <property name="nativeName">nonReactive</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">38</property>
+                    <property name="name">inconclusive</property>
+                    <property name="nativeName">inconclusive</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">39</property>
+                    <property name="name">everHivTestedbefore</property>
+                    <property name="nativeName">everHivTestedbefore</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">40</property>
+                    <property name="name">comesWithPartner</property>
+                    <property name="nativeName">comesWithPartner</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">41</property>
+                    <property name="name">singleTestNegative</property>
+                    <property name="nativeName">singleTestNegative</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">42</property>
+                    <property name="name">test1And2Negative</property>
+                    <property name="nativeName">test1And2Negative</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">43</property>
+                    <property name="name">test1And2Positive</property>
+                    <property name="nativeName">test1And2Positive</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">44</property>
+                    <property name="name">test1And2Discordant</property>
+                    <property name="nativeName">test1And2Discordant</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">45</property>
+                    <property name="name">name</property>
+                    <property name="nativeName">name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">46</property>
+                    <property name="name">ending</property>
+                    <property name="nativeName">ending</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT av.*, Site.name, Period.ending
+	FROM ActivityView av 
+		LEFT JOIN Site ON av.siteId = Site.siteId
+		LEFT JOIN Period ON av.periodId = Period.periodId 
+	WHERE av.periodId = ?]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>1.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>urban</design:name>
+            <design:position>1</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>urban</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>urban</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>periUrban</design:name>
+            <design:position>2</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>periUrban</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>periUrban</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>trading</design:name>
+            <design:position>3</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>trading</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>trading</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>rural</design:name>
+            <design:position>4</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>rural</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>rural</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>maleCondoms</design:name>
+            <design:position>5</design:position>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>32</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>maleCondoms</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>maleCondoms</design:label>
+            <design:formattingHints>
+              <design:displaySize>33</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>femaleCondoms</design:name>
+            <design:position>6</design:position>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>32</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>femaleCondoms</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>femaleCondoms</design:label>
+            <design:formattingHints>
+              <design:displaySize>33</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>totalMale0To17</design:name>
+            <design:position>7</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>totalMale0To17</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>totalMale0To17</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>totalMale18To179</design:name>
+            <design:position>8</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>totalMale18To179</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>totalMale18To179</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>totalMale180To299</design:name>
+            <design:position>9</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>totalMale180To299</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>totalMale180To299</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>totalMale300To599</design:name>
+            <design:position>10</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>totalMale300To599</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>totalMale300To599</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>totalMale600Plus</design:name>
+            <design:position>11</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>totalMale600Plus</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>totalMale600Plus</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>totalFemale0To17</design:name>
+            <design:position>12</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>totalFemale0To17</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>totalFemale0To17</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>totalFemale18To179</design:name>
+            <design:position>13</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>totalFemale18To179</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>totalFemale18To179</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>totalFemale180To299</design:name>
+            <design:position>14</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>totalFemale180To299</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>totalFemale180To299</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>totalFemale300To599</design:name>
+            <design:position>15</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>totalFemale300To599</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>totalFemale300To599</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>totalFemale600Plus</design:name>
+            <design:position>16</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>totalFemale600Plus</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>totalFemale600Plus</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>positiveMale0To17</design:name>
+            <design:position>17</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>positiveMale0To17</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>positiveMale0To17</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>positiveMale18To179</design:name>
+            <design:position>18</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>positiveMale18To179</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>positiveMale18To179</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>positiveMale180To299</design:name>
+            <design:position>19</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>positiveMale180To299</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>positiveMale180To299</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>positiveMale300To599</design:name>
+            <design:position>20</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>positiveMale300To599</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>positiveMale300To599</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>positiveMale600Plus</design:name>
+            <design:position>21</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>positiveMale600Plus</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>positiveMale600Plus</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>positiveFemale0To17</design:name>
+            <design:position>22</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>positiveFemale0To17</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>positiveFemale0To17</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>positiveFemale18To179</design:name>
+            <design:position>23</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>positiveFemale18To179</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>positiveFemale18To179</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>positiveFemale180To299</design:name>
+            <design:position>24</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>positiveFemale180To299</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>positiveFemale180To299</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>positiveFemale300To599</design:name>
+            <design:position>25</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>positiveFemale300To599</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>positiveFemale300To599</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>positiveFemale600Plus</design:name>
+            <design:position>26</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>positiveFemale600Plus</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>positiveFemale600Plus</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>totalKit1Used</design:name>
+            <design:position>27</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>totalKit1Used</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>totalKit1Used</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>totalKit2Used</design:name>
+            <design:position>28</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>totalKit2Used</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>totalKit2Used</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>totalKit3Used</design:name>
+            <design:position>29</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>totalKit3Used</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>totalKit3Used</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Period" id="305">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">periodId</property>
+                    <text-property name="displayName">periodId</text-property>
+                    <text-property name="heading">periodId</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">period</property>
+                    <text-property name="displayName">period</text-property>
+                    <text-property name="heading">period</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ending</property>
+                    <text-property name="displayName">ending</text-property>
+                    <text-property name="heading">ending</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dateCreated</property>
+                    <text-property name="displayName">dateCreated</text-property>
+                    <text-property name="heading">dateCreated</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">createdBy</property>
+                    <text-property name="displayName">createdBy</text-property>
+                    <text-property name="heading">createdBy</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dateModified</property>
+                    <text-property name="displayName">dateModified</text-property>
+                    <text-property name="heading">dateModified</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">modifiedBy</property>
+                    <text-property name="displayName">modifiedBy</text-property>
+                    <text-property name="heading">modifiedBy</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">status</property>
+                    <text-property name="displayName">status</text-property>
+                    <text-property name="heading">status</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">periodId</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">period</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">ending</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">dateCreated</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">createdBy</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">dateModified</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">modifiedBy</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">status</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">HTCDataSource</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">periodId</property>
+                    <property name="nativeName">periodId</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">0</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">period</property>
+                    <property name="nativeName">period</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">0</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">ending</property>
+                    <property name="nativeName">ending</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">0</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">dateCreated</property>
+                    <property name="nativeName">dateCreated</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">0</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">createdBy</property>
+                    <property name="nativeName">createdBy</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">dateModified</property>
+                    <property name="nativeName">dateModified</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">0</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">modifiedBy</property>
+                    <property name="nativeName">modifiedBy</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">status</property>
+                    <property name="nativeName">status</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">0</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT * FROM Period
+	WHERE status < 2;]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>1.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>periodId</design:name>
+            <design:position>1</design:position>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>periodId</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>periodId</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>period</design:name>
+            <design:position>2</design:position>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>11</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>period</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>period</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>ending</design:name>
+            <design:position>3</design:position>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ending</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ending</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>dateCreated</design:name>
+            <design:position>4</design:position>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>dateCreated</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>dateCreated</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>createdBy</design:name>
+            <design:position>5</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>100</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>createdBy</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>createdBy</design:label>
+            <design:formattingHints>
+              <design:displaySize>100</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>dateModified</design:name>
+            <design:position>6</design:position>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>dateModified</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>dateModified</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>modifiedBy</design:name>
+            <design:position>7</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>100</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>modifiedBy</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>modifiedBy</design:label>
+            <design:formattingHints>
+              <design:displaySize>100</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>status</design:name>
+            <design:position>8</design:position>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>11</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>status</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>status</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="BorderedTable" id="294">
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+        </style>
+        <style name="SeparatingCEll" id="407"/>
+        <style name="TopBorder" id="408">
+            <property name="borderBottomColor">#FFFFFF</property>
+            <property name="borderLeftColor">#FFFFFF</property>
+            <property name="borderRightColor">#FFFFFF</property>
+            <property name="borderTopColor">#000000</property>
+        </style>
+        <style name="LeftBorder" id="409">
+            <property name="borderBottomColor">#FFFFFF</property>
+            <property name="borderRightColor">#FFFFFF</property>
+            <property name="borderTopColor">#FFFFFF</property>
+        </style>
+        <style name="NoBorder" id="477">
+            <property name="borderBottomColor">#FFFFFF</property>
+            <property name="borderLeftColor">#FFFFFF</property>
+            <property name="borderRightColor">#FFFFFF</property>
+            <property name="borderTopColor">#FFFFFF</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <auto-text id="488">
+                    <property name="textAlign">center</property>
+                    <property name="type">page-number</property>
+                </auto-text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="293"/>
+        <list id="260">
+            <property name="dataSet">Activity</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">urban</property>
+                    <text-property name="displayName">urban</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["urban"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">name</property>
+                    <text-property name="displayName">name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">maleCondoms</property>
+                    <text-property name="displayName">maleCondoms</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["maleCondoms"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">femaleCondoms</property>
+                    <text-property name="displayName">femaleCondoms</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["femaleCondoms"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">periUrban</property>
+                    <text-property name="displayName">periUrban</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["periUrban"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">trading</property>
+                    <text-property name="displayName">trading</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["trading"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">rural</property>
+                    <text-property name="displayName">rural</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["rural"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">totalMale0To17</property>
+                    <text-property name="displayName">totalMale0To17</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["totalMale0To17"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">totalMale18To179</property>
+                    <text-property name="displayName">totalMale18To179</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["totalMale18To179"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">totalMale180To299</property>
+                    <text-property name="displayName">totalMale180To299</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["totalMale180To299"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">totalMale300To599</property>
+                    <text-property name="displayName">totalMale300To599</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["totalMale300To599"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">totalMale600Plus</property>
+                    <text-property name="displayName">totalMale600Plus</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["totalMale600Plus"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">totalFemale0To17</property>
+                    <text-property name="displayName">totalFemale0To17</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["totalFemale0To17"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">totalFemale18To179</property>
+                    <text-property name="displayName">totalFemale18To179</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["totalFemale18To179"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">totalFemale300To599</property>
+                    <text-property name="displayName">totalFemale300To599</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["totalFemale300To599"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">totalFemale600Plus</property>
+                    <text-property name="displayName">totalFemale600Plus</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["totalFemale600Plus"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">positiveMale0To17</property>
+                    <text-property name="displayName">positiveMale0To17</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["positiveMale0To17"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">positiveMale18To179</property>
+                    <text-property name="displayName">positiveMale18To179</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["positiveMale18To179"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">positiveMale300To599</property>
+                    <text-property name="displayName">positiveMale300To599</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["positiveMale300To599"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">positiveMale600Plus</property>
+                    <text-property name="displayName">positiveMale600Plus</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["positiveMale600Plus"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">positiveFemale0To17</property>
+                    <text-property name="displayName">positiveFemale0To17</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["positiveFemale0To17"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">positiveFemale18To179</property>
+                    <text-property name="displayName">positiveFemale18To179</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["positiveFemale18To179"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">positiveFemale180To299</property>
+                    <text-property name="displayName">positiveFemale180To299</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["positiveFemale180To299"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">positiveFemale300To599</property>
+                    <text-property name="displayName">positiveFemale300To599</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["positiveFemale300To599"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">positiveFemale600Plus</property>
+                    <text-property name="displayName">positiveFemale600Plus</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["positiveFemale600Plus"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">totalKit1Used</property>
+                    <text-property name="displayName">totalKit1Used</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["totalKit1Used"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">totalKit2Used</property>
+                    <text-property name="displayName">totalKit2Used</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["totalKit2Used"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">totalKit3Used</property>
+                    <text-property name="displayName">totalKit3Used</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["totalKit3Used"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">totalFemale180To299</property>
+                    <text-property name="displayName">totalFemale180To299</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["totalFemale180To299"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">positiveMale180To299</property>
+                    <text-property name="displayName">positiveMale180To299</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["positiveMale180To299"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">ending</property>
+                    <text-property name="displayName">ending</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ending"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">males</property>
+                    <text-property name="displayName">males</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["males"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">exposedInfants</property>
+                    <text-property name="displayName">exposedInfants</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["exposedInfants"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">reactive</property>
+                    <text-property name="displayName">reactive</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["reactive"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">nonReactive</property>
+                    <text-property name="displayName">nonReactive</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["nonReactive"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">inconclusive</property>
+                    <text-property name="displayName">inconclusive</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["inconclusive"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">femalesPregnant</property>
+                    <text-property name="displayName">femalesPregnant</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["femalesPregnant"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">totalTested</property>
+                    <text-property name="displayName">totalFinalResults</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["inconclusive"] + dataSetRow["nonReactive"] + dataSetRow["reactive"] + dataSetRow["exposedInfants"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">comesWithPartner</property>
+                    <text-property name="displayName">comesWithPartner</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["comesWithPartner"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">everHivTestedbefore</property>
+                    <text-property name="displayName">everHivTestedbefore</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["everHivTestedbefore"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">singleTestNegative</property>
+                    <text-property name="displayName">singleTestNegative</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["singleTestNegative"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">test1And2Negative</property>
+                    <text-property name="displayName">test1And2Negative</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["test1And2Negative"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">test1And2Discordant</property>
+                    <text-property name="displayName">test1And2Discordant</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["test1And2Discordant"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">totalGivenResult</property>
+                    <text-property name="displayName">totalKitResults</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["singleTestNegative"] + dataSetRow["test1And2Negative"] + dataSetRow["test1And2Positive"] + dataSetRow["test1And2Discordant"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">test1And2Positive</property>
+                    <text-property name="displayName">test1And2Positive</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["test1And2Positive"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">totalTestedBySex</property>
+                    <text-property name="displayName">totalTestedBySex</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["femalesPregnant"] + dataSetRow["femalesNonPregnant"] + dataSetRow["males"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">femalesNonPregnant</property>
+                    <text-property name="displayName">femalesNonPregnant</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["femalesNonPregnant"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <header>
+                <label id="12">
+                    <property name="backgroundPositionX">center</property>
+                    <property name="backgroundPositionY">center</property>
+                    <property name="fontSize">14pt</property>
+                    <property name="fontWeight">bold</property>
+                    <property name="textAlign">center</property>
+                    <text-property name="text">Site Activity Report</text-property>
+                </label>
+            </header>
+            <detail>
+                <grid id="18">
+                    <property name="marginTop">auto</property>
+                    <property name="marginBottom">auto</property>
+                    <property name="height">13.083333333333334in</property>
+                    <property name="width">7.802083333333333in</property>
+                    <column id="19">
+                        <property name="width">2.4166666666666665in</property>
+                        <property name="style">BorderedTable</property>
+                        <property name="fontWeight">bold</property>
+                    </column>
+                    <column id="20">
+                        <property name="width">5.385416666666667in</property>
+                        <property name="style">BorderedTable</property>
+                    </column>
+                    <row id="146">
+                        <property name="height">0.3333333333333333in</property>
+                        <cell id="147">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="295">
+                                <property name="fontSize">12pt</property>
+                                <text-property name="text">Site</text-property>
+                            </label>
+                        </cell>
+                        <cell id="148">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <data id="263">
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">name</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="421">
+                        <property name="height">0.3125in</property>
+                        <cell id="422">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="309">
+                                <property name="fontSize">12pt</property>
+                                <text-property name="text">Period Ending</text-property>
+                            </label>
+                        </cell>
+                        <cell id="423">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <data id="310">
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">ending</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="21">
+                        <property name="height">0.3229166666666667in</property>
+                        <cell id="22">
+                            <property name="colSpan">2</property>
+                            <property name="rowSpan">1</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="30">
+                                <property name="fontSize">12pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="fontStyle">normal</property>
+                                <text-property name="text">Prevention / Behavioural Change</text-property>
+                            </label>
+                        </cell>
+                    </row>
+                    <row id="24">
+                        <property name="height">0.28125in</property>
+                        <cell id="25">
+                            <property name="colSpan">2</property>
+                            <property name="rowSpan">1</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="31">
+                                <property name="fontWeight">bold</property>
+                                <text-property name="text">Number of condoms distributed to end users free</text-property>
+                            </label>
+                        </cell>
+                    </row>
+                    <row id="27">
+                        <property name="height">0.28125in</property>
+                        <cell id="28">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="42">
+                                <property name="fontStyle">italic</property>
+                                <text-property name="text">Male</text-property>
+                            </label>
+                        </cell>
+                        <cell id="29">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <data id="264">
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">maleCondoms</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="39">
+                        <property name="height">0.3333333333333333in</property>
+                        <cell id="40">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="43">
+                                <property name="fontStyle">italic</property>
+                                <text-property name="text">Female</text-property>
+                            </label>
+                        </cell>
+                        <cell id="41">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <data id="265">
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">femaleCondoms</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="44">
+                        <property name="height">0.28125in</property>
+                        <cell id="45">
+                            <property name="colSpan">2</property>
+                            <property name="rowSpan">1</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="53">
+                                <property name="fontSize">12pt</property>
+                                <property name="fontStyle">normal</property>
+                                <text-property name="text">Counselling and Testing</text-property>
+                            </label>
+                        </cell>
+                    </row>
+                    <row id="33">
+                        <property name="height">0.28125in</property>
+                        <cell id="34">
+                            <property name="colSpan">2</property>
+                            <property name="rowSpan">1</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="54">
+                                <text-property name="text">Number of individuals by residence</text-property>
+                            </label>
+                        </cell>
+                    </row>
+                    <row id="47">
+                        <property name="height">0.28125in</property>
+                        <cell id="48">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="55">
+                                <property name="fontStyle">italic</property>
+                                <text-property name="text">Urban</text-property>
+                            </label>
+                        </cell>
+                        <cell id="49">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <data id="266">
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">urban</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="56">
+                        <property name="height">0.2708333333333333in</property>
+                        <cell id="57">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="83">
+                                <property name="fontStyle">italic</property>
+                                <text-property name="text">Peri-Urban</text-property>
+                            </label>
+                        </cell>
+                        <cell id="58">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <data id="267">
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">periUrban</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="50">
+                        <property name="height">0.2708333333333333in</property>
+                        <cell id="51">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="84">
+                                <property name="fontStyle">italic</property>
+                                <text-property name="text">Rural</text-property>
+                            </label>
+                        </cell>
+                        <cell id="52">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <data id="269">
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">rural</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="59">
+                        <property name="height">0.3020833333333333in</property>
+                        <cell id="60">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="85">
+                                <property name="fontStyle">italic</property>
+                                <text-property name="text">Trading</text-property>
+                            </label>
+                        </cell>
+                        <cell id="61">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <data id="268">
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">trading</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="62">
+                        <property name="height">0.2916666666666667in</property>
+                        <cell id="63">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="86">
+                                <property name="fontSize">10pt</property>
+                                <text-property name="text">Number of individuals by age</text-property>
+                            </label>
+                        </cell>
+                        <cell id="64">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                        </cell>
+                    </row>
+                    <row id="65">
+                        <property name="height">1.6875in</property>
+                        <cell id="66">
+                            <property name="colSpan">2</property>
+                            <property name="rowSpan">1</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <grid id="94">
+                                <property name="width">7.729166666666667in</property>
+                                <column id="95">
+                                    <property name="width">2.375in</property>
+                                    <property name="style">BorderedTable</property>
+                                </column>
+                                <column id="96">
+                                    <property name="width">2.7083333333333335in</property>
+                                    <property name="style">BorderedTable</property>
+                                    <property name="fontWeight">normal</property>
+                                </column>
+                                <column id="97">
+                                    <property name="width">2.6458333333333335in</property>
+                                    <property name="style">BorderedTable</property>
+                                    <property name="fontWeight">normal</property>
+                                </column>
+                                <row id="98">
+                                    <cell id="99">
+                                        <property name="borderLeftStyle">none</property>
+                                        <property name="borderTopStyle">none</property>
+                                    </cell>
+                                    <cell id="100">
+                                        <label id="110">
+                                            <property name="fontWeight">bold</property>
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">Male</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="101">
+                                        <label id="111">
+                                            <property name="fontWeight">bold</property>
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">Female</text-property>
+                                        </label>
+                                    </cell>
+                                </row>
+                                <row id="102">
+                                    <cell id="103">
+                                        <label id="112">
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">0 - 17 Months</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="104">
+                                        <data id="270">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">totalMale0To17</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="105">
+                                        <data id="275">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">totalFemale0To17</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                                <row id="106">
+                                    <cell id="107">
+                                        <label id="121">
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">18 Months - 14 yrs</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="108">
+                                        <data id="271">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">totalMale18To179</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="109">
+                                        <data id="276">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">totalFemale18To179</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                                <row id="113">
+                                    <cell id="114">
+                                        <label id="142">
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">15 - 24 yrs</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="115">
+                                        <data id="272">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">totalMale180To299</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="116">
+                                        <data id="302">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">totalFemale180To299</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                                <row id="117">
+                                    <cell id="118">
+                                        <label id="143">
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">25 - 49 yrs</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="119">
+                                        <data id="273">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">totalMale300To599</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="120">
+                                        <data id="279">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">totalFemale300To599</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                                <row id="122">
+                                    <cell id="123">
+                                        <label id="144">
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">50+ yrs</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="124">
+                                        <data id="274">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">totalMale600Plus</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="125">
+                                        <data id="278">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">totalFemale600Plus</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                    </row>
+                    <row id="68">
+                        <property name="height">0.2708333333333333in</property>
+                        <cell id="69">
+                            <property name="colSpan">2</property>
+                            <property name="rowSpan">1</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="145">
+                                <text-property name="text">Number of HIV positive individuals by age</text-property>
+                            </label>
+                        </cell>
+                    </row>
+                    <row id="71">
+                        <property name="height">1.71875in</property>
+                        <cell id="72">
+                            <property name="colSpan">2</property>
+                            <property name="rowSpan">1</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <grid id="166">
+                                <column id="167">
+                                    <property name="style">BorderedTable</property>
+                                </column>
+                                <column id="168">
+                                    <property name="style">BorderedTable</property>
+                                    <property name="fontWeight">normal</property>
+                                </column>
+                                <column id="169">
+                                    <property name="style">BorderedTable</property>
+                                    <property name="fontWeight">normal</property>
+                                </column>
+                                <row id="170">
+                                    <cell id="171">
+                                        <property name="borderLeftStyle">none</property>
+                                        <property name="borderTopStyle">none</property>
+                                    </cell>
+                                    <cell id="172">
+                                        <label id="173">
+                                            <property name="fontWeight">bold</property>
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">Male</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="174">
+                                        <label id="175">
+                                            <property name="fontWeight">bold</property>
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">Female</text-property>
+                                        </label>
+                                    </cell>
+                                </row>
+                                <row id="176">
+                                    <cell id="177">
+                                        <label id="178">
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">0 - 17 Months</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="179">
+                                        <data id="280">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">positiveMale0To17</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="181">
+                                        <data id="285">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">positiveFemale0To17</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                                <row id="183">
+                                    <cell id="184">
+                                        <label id="185">
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">18 Months - 14 yrs</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="186">
+                                        <data id="281">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">positiveMale18To179</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="188">
+                                        <data id="286">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">positiveFemale18To179</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                                <row id="190">
+                                    <cell id="191">
+                                        <label id="192">
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">15 - 24 yrs</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="193">
+                                        <data id="303">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">positiveMale180To299</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="195">
+                                        <data id="287">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">positiveFemale180To299</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                                <row id="197">
+                                    <cell id="198">
+                                        <label id="199">
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">25 - 49 yrs</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="200">
+                                        <data id="283">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">positiveMale300To599</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="202">
+                                        <data id="288">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">positiveFemale300To599</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                                <row id="204">
+                                    <cell id="205">
+                                        <label id="206">
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">50+ yrs</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="207">
+                                        <data id="284">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">positiveMale600Plus</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="209">
+                                        <data id="289">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">positiveFemale600Plus</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                    </row>
+                    <row id="311">
+                        <property name="height">1.7395833333333333in</property>
+                        <cell id="312">
+                            <property name="colSpan">2</property>
+                            <property name="rowSpan">1</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <grid id="354">
+                                <property name="style">SeparatingCEll</property>
+                                <property name="height">1.6666666666666667in</property>
+                                <property name="width">7.729166666666667in</property>
+                                <column id="355">
+                                    <property name="width">2.3958333333333335in</property>
+                                </column>
+                                <column id="356">
+                                    <property name="width">1.25in</property>
+                                </column>
+                                <column id="392">
+                                    <property name="width">0.1875in</property>
+                                    <property name="style">SeparatingCEll</property>
+                                    <property name="marginTop">0pt</property>
+                                    <property name="marginBottom">0pt</property>
+                                    <property name="marginRight">0pt</property>
+                                </column>
+                                <column id="357">
+                                    <property name="width">2.3541666666666665in</property>
+                                </column>
+                                <column id="358">
+                                    <property name="width">1.5416666666666667in</property>
+                                </column>
+                                <row id="359">
+                                    <cell id="360">
+                                        <property name="colSpan">2</property>
+                                        <property name="rowSpan">1</property>
+                                        <property name="style">BorderedTable</property>
+                                        <label id="385">
+                                            <text-property name="text">Clients tested by sex</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="387">
+                                        <property name="style">TopBorder</property>
+                                    </cell>
+                                    <cell id="362">
+                                        <property name="colSpan">2</property>
+                                        <property name="rowSpan">1</property>
+                                        <property name="style">BorderedTable</property>
+                                        <label id="386">
+                                            <text-property name="text">Final results given to client</text-property>
+                                        </label>
+                                    </cell>
+                                </row>
+                                <row id="364">
+                                    <cell id="365">
+                                        <property name="style">BorderedTable</property>
+                                        <label id="393">
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">Males</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="366">
+                                        <property name="style">BorderedTable</property>
+                                        <data id="410">
+                                            <property name="fontWeight">normal</property>
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">males</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="388">
+                                        <property name="style">SeparatingCEll</property>
+                                    </cell>
+                                    <cell id="367">
+                                        <property name="style">BorderedTable</property>
+                                        <label id="396">
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">Exposed Infant</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="368">
+                                        <property name="style">BorderedTable</property>
+                                        <data id="412">
+                                            <property name="fontWeight">normal</property>
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">exposedInfants</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                                <row id="369">
+                                    <cell id="370">
+                                        <property name="style">BorderedTable</property>
+                                        <label id="394">
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">Females Non Pregnant</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="371">
+                                        <property name="style">BorderedTable</property>
+                                        <data id="481">
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">femalesNonPregnant</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="389">
+                                        <property name="style">SeparatingCEll</property>
+                                    </cell>
+                                    <cell id="372">
+                                        <property name="style">BorderedTable</property>
+                                        <label id="397">
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">Positive</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="373">
+                                        <property name="style">BorderedTable</property>
+                                        <data id="413">
+                                            <property name="fontWeight">normal</property>
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">reactive</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                                <row id="374">
+                                    <cell id="375">
+                                        <property name="style">BorderedTable</property>
+                                        <label id="395">
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">Females Pregnant</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="376">
+                                        <property name="style">BorderedTable</property>
+                                        <data id="416">
+                                            <property name="fontWeight">normal</property>
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">femalesPregnant</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="390">
+                                        <property name="style">SeparatingCEll</property>
+                                    </cell>
+                                    <cell id="377">
+                                        <property name="style">BorderedTable</property>
+                                        <label id="398">
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">Negative</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="378">
+                                        <property name="style">BorderedTable</property>
+                                        <data id="414">
+                                            <property name="fontWeight">normal</property>
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">nonReactive</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                                <row id="379">
+                                    <cell id="380">
+                                        <property name="style">BorderedTable</property>
+                                        <label id="478">
+                                            <property name="fontWeight">normal</property>
+                                            <property name="textAlign">left</property>
+                                            <text-property name="text">Total clients tested and given result</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="381">
+                                        <property name="style">BorderedTable</property>
+                                        <data id="480">
+                                            <property name="fontWeight">normal</property>
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">totalTestedBySex</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="391">
+                                        <property name="style">SeparatingCEll</property>
+                                    </cell>
+                                    <cell id="382">
+                                        <property name="style">BorderedTable</property>
+                                        <label id="399">
+                                            <property name="fontStyle">italic</property>
+                                            <text-property name="text">Inconclusive</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="383">
+                                        <property name="style">BorderedTable</property>
+                                        <data id="415">
+                                            <property name="fontWeight">normal</property>
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">inconclusive</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                                <row id="400">
+                                    <property name="height">0.3020833333333333in</property>
+                                    <cell id="401">
+                                        <property name="colSpan">2</property>
+                                        <property name="rowSpan">1</property>
+                                        <property name="style">SeparatingCEll</property>
+                                    </cell>
+                                    <cell id="419">
+                                        <property name="colSpan">1</property>
+                                        <property name="rowSpan">1</property>
+                                        <property name="style">NoBorder</property>
+                                    </cell>
+                                    <cell id="479">
+                                        <property name="style">BorderedTable</property>
+                                        <label id="406">
+                                            <property name="fontWeight">normal</property>
+                                            <property name="textAlign">left</property>
+                                            <text-property name="text">Total clients tested and given result</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="405">
+                                        <property name="style">BorderedTable</property>
+                                        <data id="417">
+                                            <property name="fontWeight">normal</property>
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">totalTested</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                    </row>
+                    <row id="435">
+                        <property name="height">0.28125in</property>
+                        <cell id="436">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="430">
+                                <text-property name="text">Ever HIV tested before</text-property>
+                            </label>
+                        </cell>
+                        <cell id="437">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <data id="439">
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">everHivTestedbefore</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="432">
+                        <property name="height">0.28125in</property>
+                        <cell id="433">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="431">
+                                <text-property name="text">Comes with partner</text-property>
+                            </label>
+                        </cell>
+                        <cell id="434">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <data id="438">
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">comesWithPartner</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="74">
+                        <property name="height">0.28125in</property>
+                        <cell id="75">
+                            <property name="colSpan">2</property>
+                            <property name="rowSpan">1</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="225">
+                                <property name="fontSize">12pt</property>
+                                <text-property name="text">Test kits used</text-property>
+                            </label>
+                        </cell>
+                    </row>
+                    <row id="77">
+                        <property name="height">0.28125in</property>
+                        <cell id="78">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="226">
+                                <property name="fontStyle">italic</property>
+                                <text-property name="text">Determine</text-property>
+                            </label>
+                        </cell>
+                        <cell id="79">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <data id="290">
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">totalKit1Used</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="87">
+                        <property name="height">0.2604166666666667in</property>
+                        <cell id="88">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="227">
+                                <property name="fontStyle">italic</property>
+                                <text-property name="text">Unigold</text-property>
+                            </label>
+                        </cell>
+                        <cell id="89">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <data id="291">
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">totalKit2Used</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="90">
+                        <property name="height">0.2708333333333333in</property>
+                        <cell id="91">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="228">
+                                <property name="fontStyle">italic</property>
+                                <text-property name="text">Bioline</text-property>
+                            </label>
+                        </cell>
+                        <cell id="92">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <data id="292">
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">totalKit3Used</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="440">
+                        <property name="height">0.2708333333333333in</property>
+                        <cell id="441">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="449">
+                                <property name="fontSize">12pt</property>
+                                <text-property name="text">Test kit results</text-property>
+                            </label>
+                        </cell>
+                        <cell id="442">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                        </cell>
+                    </row>
+                    <row id="446">
+                        <property name="height">0.2708333333333333in</property>
+                        <cell id="447">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="450">
+                                <property name="fontStyle">italic</property>
+                                <text-property name="text">Single test negative</text-property>
+                            </label>
+                        </cell>
+                        <cell id="448">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <data id="463">
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">singleTestNegative</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="443">
+                        <property name="height">0.2708333333333333in</property>
+                        <cell id="444">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="460">
+                                <property name="fontStyle">italic</property>
+                                <text-property name="text">Test 1 &amp; 2 negative</text-property>
+                            </label>
+                        </cell>
+                        <cell id="445">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <data id="464">
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">test1And2Negative</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="457">
+                        <property name="height">0.2708333333333333in</property>
+                        <cell id="458">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="461">
+                                <property name="fontStyle">italic</property>
+                                <text-property name="text">Test 1 &amp; 2 positive</text-property>
+                            </label>
+                        </cell>
+                        <cell id="459">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <data id="470">
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">test1And2Positive</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="454">
+                        <property name="height">0.2708333333333333in</property>
+                        <cell id="455">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="462">
+                                <property name="fontStyle">italic</property>
+                                <text-property name="text">Test 1 &amp; 2 discordant</text-property>
+                            </label>
+                        </cell>
+                        <cell id="456">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <data id="466">
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">test1And2Discordant</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="451">
+                        <property name="height">0.2708333333333333in</property>
+                        <property name="masterPage">Simple MasterPage</property>
+                        <property name="pageBreakAfter">auto</property>
+                        <cell id="452">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <label id="467">
+                                <property name="fontSize">9pt</property>
+                                <property name="fontWeight">normal</property>
+                                <property name="fontStyle">italic</property>
+                                <text-property name="text">Total clients tested and given results</text-property>
+                            </label>
+                        </cell>
+                        <cell id="453">
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                            <data id="468">
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">totalGivenResult</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="482">
+                        <property name="height">0.2708333333333333in</property>
+                        <property name="style">NoBorder</property>
+                        <property name="masterPage">Simple MasterPage</property>
+                        <property name="pageBreakAfter">auto</property>
+                        <cell id="483">
+                            <property name="style">NoBorder</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                        </cell>
+                        <cell id="484">
+                            <property name="style">NoBorder</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                        </cell>
+                    </row>
+                    <row id="485">
+                        <property name="height">0.2708333333333333in</property>
+                        <property name="style">NoBorder</property>
+                        <property name="masterPage">Simple MasterPage</property>
+                        <property name="pageBreakAfter">always</property>
+                        <cell id="486">
+                            <property name="style">NoBorder</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                        </cell>
+                        <cell id="487">
+                            <property name="style">NoBorder</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="paddingRight">1pt</property>
+                            <property name="pageBreakAfter">always</property>
+                        </cell>
+                    </row>
+                </grid>
+            </detail>
+        </list>
+    </body>
+</report>
